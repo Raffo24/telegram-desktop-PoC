@@ -39,12 +39,11 @@ Codice che si vuole far eseguire alla vittima
 __import__("subprocess").call(["calc.exe"])
 ```
 
-Questa vulnerabilità sfrutta un altro concetto, le API di telegram hanno una funzione **SendVideo** che permette di inviare dei video; tuttavia, nonostante la documentazione specifica che i file video caricati devono chiaramente essere dei file MP4, **non viene fatto alcun controllo ed è possibile caricare dei file di qualunque estensione come fossero dei video**.
+Questa vulnerabilità sfrutta un altro concetto, le API di telegram hanno una funzione **SendVideo** che permette di inviare dei video tramite multipart/form-data e si è scoperto che **non ci sono controlli per verificare se viene effettivamente caricato un file di tipo video, dunque è possibile caricare dei file di qualunque estensione e di qualsiasi MIME come fossero dei video**.
 
 ![immagine](https://github.com/Raffo24/telegram-desktop-PoC/assets/46811658/1e02b04d-64c7-4f65-8d56-80026b492286)
 
-
-In questo modo i client desktop considereranno il file come video, questo perchè il client si fida(va) ciecamente del server.
+Dato che il client si fida(va) ciecamente del server, il file verrà visualizzato come un video.
 
 **SendVideoCall.js**
 ```
@@ -74,10 +73,11 @@ bot.onText(/\/video/, (msg) => {
 });
 ```
 
-Durante il caricamento il file viene considerato come un video da telegram desktop
-tuttavia, nel momento di visualizzazione appare come un video non funzionante e viene visualizzato come un rettangolo nero con il simbolo "play" al centro.
+Tuttavia, nel momento di visualizzazione, appare come un video non funzionante e viene visualizzato come un rettangolo nero con il simbolo "play" al centro e la durata fake (specificata dall'attaccante nella sua API call nell parametro "duration").
 
-Essendo considerato come un video da telegram desktop, quando il client prova ad aprirlo, viene passato il controllo al sistema operativo; a quel punto Windows (basandoci sull’estensione e non sul MIME) lo apre con python, permettendo di fatto RCE.
+
+
+Essendo considerato come un video da telegram desktop, quando il client prova ad aprirlo, viene passato il controllo al sistema operativo; a quel punto Windows (basandoci sull’estensione e non sul Content-Type) lo apre con python, permettendo di fatto RCE.
 
 ## WARNING: la vulnerabilità è stata patchata!
 - **lato server**: aggiungendo l'estensione .untrusted ai file .pyzw (*.pyzw.untrusted)
