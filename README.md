@@ -43,7 +43,9 @@ Questa vulnerabilità sfrutta un altro concetto, le API di telegram hanno una fu
 
 ![immagine](https://github.com/Raffo24/telegram-desktop-PoC/assets/46811658/1e02b04d-64c7-4f65-8d56-80026b492286)
 
-Dato che il client si fida(va) ciecamente del server, il file verrà visualizzato come un video.
+Dato che il client si fida(va) ciecamente del server, il file verrà visualizzato come un video. 
+Questo accade perchè il server di telegram memorizza i "metadati" inviati insieme alla request fatta per caricare il video e poi il client di telegram desktop utilizza questi metadati per mostrare l'anteprima del video.
+
 
 **SendVideoCall.js**
 ```
@@ -73,7 +75,7 @@ bot.onText(/\/video/, (msg) => {
 });
 ```
 
-Tuttavia, nel momento di visualizzazione, appare come un video non funzionante e viene visualizzato come un rettangolo nero con il simbolo "play" al centro e la durata fake (specificata dall'attaccante nella sua API call nell parametro "duration").
+Tuttavia, nel momento di visualizzazione, appare come un video non funzionante e viene visualizzato come un rettangolo nero con il simbolo "play" al centro e la durata fake (specificata dall'attaccante nella sua API call nel parametro "duration").
 
 <img width="545" alt="image_2024-04-22_19-59-25" src="https://github.com/Raffo24/telegram-desktop-PoC/assets/46811658/4286b7f6-e70e-470d-a661-d7f1fa5f9cbd">
 
