@@ -75,6 +75,7 @@ bot.onText(/\/video/, (msg) => {
 
 Tuttavia, nel momento di visualizzazione, appare come un video non funzionante e viene visualizzato come un rettangolo nero con il simbolo "play" al centro e la durata fake (specificata dall'attaccante nella sua API call nell parametro "duration").
 
+						<img width="545" alt="image_2024-04-22_19-59-25" src="https://github.com/Raffo24/telegram-desktop-PoC/assets/46811658/048cf67b-1827-4dc1-ba47-4d0846cdff51">
 
 
 Essendo considerato come un video da telegram desktop, quando il client prova ad aprirlo, viene passato il controllo al sistema operativo; a quel punto Windows (basandoci sull’estensione e non sul Content-Type) lo apre con python, permettendo di fatto RCE.
