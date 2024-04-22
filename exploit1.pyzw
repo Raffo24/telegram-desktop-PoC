@@ -1,0 +1,3 @@
+GIF89A = "test"
+import os
+os.system("calc")
