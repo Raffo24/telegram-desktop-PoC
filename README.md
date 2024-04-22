@@ -40,6 +40,10 @@ __import__("subprocess").call(["calc.exe"])
 ```
 
 Questa vulnerabilità sfrutta un altro concetto, le API di telegram hanno una funzione **SendVideo** che permette di inviare dei video; tuttavia, nonostante la documentazione specifica che i file video caricati devono chiaramente essere dei file MP4, **non viene fatto alcun controllo ed è possibile caricare dei file di qualunque estensione come fossero dei video**.
+
+![immagine](https://github.com/Raffo24/telegram-desktop-PoC/assets/46811658/1e02b04d-64c7-4f65-8d56-80026b492286)
+
+
 In questo modo i client desktop considereranno il file come video, questo perchè il client si fida(va) ciecamente del server.
 
 **SendVideoCall.js**
