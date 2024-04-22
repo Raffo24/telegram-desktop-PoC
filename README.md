@@ -77,7 +77,7 @@ Essendo considerato come un video da telegram desktop, quando il client prova ad
 
 ## WARNING: la vulnerabilità è stata patchata!
 - **lato server**: aggiungendo l'estensione .untrusted ai file .pyzw (*.pyzw.untrusted)
-- **Lato client** (> 4.16.4) :
+- **lato client** (> 4.16.4) :
 	* aggiungendo "pyzw" all'elenco delle estensioni pericolose
 	* bloccando il caricamento di GIF non funzionanti
 	* aggiungendo a qualunque video inviato l'estensione ".mp4", in modo tale assicurare che i file inviati  come video vengano aperti da lettori multimediali (*.pyzw.mp4).
