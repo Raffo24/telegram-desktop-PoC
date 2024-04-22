@@ -79,8 +79,11 @@ Essendo considerato come un video da telegram desktop, quando il client prova ad
 - **lato server**: aggiungendo l'estensione .untrusted ai file .pyzw (*.pyzw.untrusted)
 - **lato client** (> 4.16.4) :
 	* aggiungendo "pyzw" all'elenco delle estensioni pericolose
-	* bloccando il caricamento di GIF non funzionanti
-	* aggiungendo a qualunque video inviato l'estensione ".mp4", in modo tale assicurare che i file inviati  come video vengano aperti da lettori multimediali (*.pyzw.mp4).
+	* facendo in modo che non venga mostrata l'ateprima delle GIF e dei video non funzionanti 
+	* aggiungendo un controllo per verificare che il MIME corrisponde al tipo di estensione inviata; se non corrisponde, il client aggiungerà l'estensione corrispondente al MIME/Content type, ad esempio:
+		*  se viene inviato un file con MIME GIF verrà scaricato dal client con estensione corrispondente \*.pyzw.gif, 
+		*  invece, se il file viene inviato dal BOT con ContentType "video/mp4" allora il file verrà scaricato sul client come \*.pyzw.mp4.
+ 	
 <br>
 
 ![photo1713802375](https://github.com/Raffo24/telegram-desktop-PoC/assets/46811658/2ae70b62-e69b-424b-9649-ad347670e30d)
