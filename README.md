@@ -78,7 +78,7 @@ Tuttavia, nel momento di visualizzazione, appare come un video non funzionante e
 <img width="545" alt="image_2024-04-22_19-59-25" src="https://github.com/Raffo24/telegram-desktop-PoC/assets/46811658/4286b7f6-e70e-470d-a661-d7f1fa5f9cbd">
 
 
-Essendo considerato come un video da telegram desktop, quando il client prova ad aprirlo, viene passato il controllo al sistema operativo; a quel punto Windows (basandoci sull’estensione e non sul Content-Type) lo apre con python, permettendo di fatto RCE.
+Quando il client prova ad aprirlo (essendo considerato come un video da telegram desktop) viene passato il controllo al sistema operativo; a quel punto Windows (basandoci sull’estensione e non sul Content-Type) lo apre con python, permettendo di fatto RCE.
 
 ## WARNING: la vulnerabilità è stata patchata!
 - **lato server**: aggiungendo l'estensione .untrusted ai file .pyzw (*.pyzw.untrusted)
