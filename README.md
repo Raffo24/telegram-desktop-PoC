@@ -83,7 +83,8 @@ Essendo considerato come un video da telegram desktop, quando il client prova ad
 	* aggiungendo a qualunque video inviato l'estensione ".mp4", in modo tale assicurare che i file inviati  come video vengano aperti da lettori multimediali (*.pyzw.mp4).
 <br>
 
-![d55ed1eeb47474b529bf92fee32c2ff8.png](:/30c56b42b6654f53b8d0f1d0502b3e14)
+![photo1713802375](https://github.com/Raffo24/telegram-desktop-PoC/assets/46811658/2ae70b62-e69b-424b-9649-ad347670e30d)
+
 
 **È ancora possibile sfruttare la vulnerabilità** rielaborando uno degli exploit se: 
 - il target ha ancora il client telegram desktop vecchio installato (<= 4.16.4);
