@@ -96,4 +96,4 @@ Quando il client prova ad aprirlo (essendo considerato come un video da telegram
 
 **È ancora possibile sfruttare la vulnerabilità** rielaborando uno degli exploit se: 
 - il target ha ancora il client telegram desktop vecchio installato (<= 4.16.4);
-- si conosce un programma installato nel computer della vittima in grado di eseguire delle azioni a seguito dell'apertura di un file.
+- si conosce un programma installato nel computer della vittima in grado di eseguire delle azioni a seguito dell'apertura di un file (il file in questione deve avere un'estensione non presente nell'elenco delle estensioni pericolose).
